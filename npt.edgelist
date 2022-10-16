@@ -5,3 +5,13 @@
 2 5 {'distance': 1.0, 'ref': 5, 'capacity': 1, 'spof': ''}
 3 5 {'distance': 2.0, 'ref': 6, 'capacity': 1, 'spof': '4, 7'}
 4 5 {'distance': 3.0, 'ref': 7, 'capacity': 1, 'spof': '4, 6'}
+
+p = [1, 2, 5]
+G[p[0]p[1]][ref]= 1
+G[p[1]p[2]][ref]= 5
+r = [1, 5]
+r = [4] (spof 1, 2)
+r = [2, 6] (capacity)
+
+p = [1 ,4 ,5]
+r = [3, 7]
