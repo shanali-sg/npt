@@ -8,11 +8,18 @@ G = nx.read_edgelist("npt.edgelist", nodetype=int)
 # update G with true capacity edges only
 G = nx.Graph(((u, v, e) for u, v, e in G.edges(data=True) if e['capacity'] == 1))
 
-# determine all_simple_paths between requested nodes
-paths = nx.all_simple_paths(G, 1, 5)
+u = 1
+v = 5
 
-# we need sorted paths
-# sorted_paths = 
+# determine all_simple_paths between requested nodes
+paths = nx.all_simple_paths(G, u, v)
+
+wps = []
+#print("sorted simple paths %d to %d" % (u, v))
+for path in nx.all_simple_paths(G, source=u, target=v):
+    wp = path, nx.path_weight(G, path, weight='distance')
+    if wp not in wps:
+        wps.append(wp)
 
 # setup a edge ref. array for the candidate & diverse route references
 candidate_route_ref = []
@@ -38,15 +45,5 @@ for p in wps:
                 diverse_route_ref = diverse_route_ref.remove(edge_ref)
         
         if candidate_route_ref != diverse_route_ref:
-            print(candidate_route)
-            print(diverse_route)
-
-    # if candidate_route_ref has no existing ref.
-    # record the ref
-    # if diverse_route_ref
-    # record the ref
-    # update candidate_route_ref & diverse_route_ref with subsequent 
-    # reference to FALSE
-    # if candidate_route_ref & diverse_route_ref are not equal has no FALSE
-    # print the candidate_route & diverse_route from 
-    # candidate_route_ref & diverse_route_ref
+            print(candidate_route_ref)
+            print(diverse_route_ref)
