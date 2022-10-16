@@ -10,4 +10,4 @@ for (u,v,e) in G.edges(data=True):
 for (u,v,e) in G.edges(data=True):
     print("simple paths %d to %d" % (u, v))
     for path in nx.all_simple_paths(G, source=u, target=v):
-        print(path)
+        print(path, path['distance'])
