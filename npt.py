@@ -5,9 +5,9 @@ G = nx.Graph(((u, v, e) for u,v,e in G.edges(data=True) if e['capacity'] == 1))
 
 print("shortest paths")
 for (u,v,e) in G.edges(data=True):
-    print(nx.shortest_path(G, u, v))
+    print(nx.shortest_path(G, u, v, weight='distance'))
 
 for (u,v,e) in G.edges(data=True):
-    print("simple paths %s to %s" % (u, v))
+    print("simple paths %d to %d" % (u, v))
     for path in nx.all_simple_paths(G, source=u, target=v):
         print(path)
