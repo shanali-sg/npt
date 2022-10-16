@@ -1,7 +1,7 @@
-1 2 {'distance': 1.0, 'link_ref': 'a', 'capacity': 1, 'link_spof': ['d']}
-1 3 {'distance': 2.0, 'link_ref': 'b', 'capacity': 0, 'link_spof': ['c', 'd']}
-1 4 {'distance': 3.0, 'link_ref': 'c', 'capacity': 1, 'link_spof': ['b']}
-1 5 {'distance': 2.5, 'link_ref': 'd', 'capacity': 1, 'link_spof': ['a', 'b']}
-2 5 {'distance': 1.0, 'link_ref': 'e', 'capacity': 1, 'link_spof': []}
-3 5 {'distance': 2.0, 'link_ref': 'f', 'capacity': 1, 'link_spof': ['d', 'g']}
-4 5 {'distance': 3.0, 'link_ref': 'g', 'capacity': 1, 'link_spof': ['d', 'f']}
+1 2 {'distance': 1.0, 'ref': 1, 'capacity': 1, 'spof': '4'}
+1 3 {'distance': 2.0, 'ref': 2, 'capacity': 0, 'spof': '3, 4'}
+1 4 {'distance': 3.0, 'ref': 3, 'capacity': 1, 'spof': '2'}
+1 5 {'distance': 2.5, 'ref': 4, 'capacity': 1, 'spof': '1, 2'}
+2 5 {'distance': 1.0, 'ref': 5, 'capacity': 1, 'spof': ''}
+3 5 {'distance': 2.0, 'ref': 6, 'capacity': 1, 'spof': '4, 7'}
+4 5 {'distance': 3.0, 'ref': 7, 'capacity': 1, 'spof': '4, 6'}
