@@ -11,3 +11,12 @@ for (u,v,e) in G.edges(data=True):
     print("simple paths %d to %d" % (u, v))
     for path in nx.all_simple_paths(G, source=u, target=v):
         print(path, nx.path_weight(G, path, weight='distance'))
+
+for (u,v,e) in G.edges(data=True):
+    wps = []
+    print("sorted simple paths %d to %d" % (u, v))
+    for path in nx.all_simple_paths(G, source=u, target=v):
+        wp = path, nx.path_weight(G, path, weight='distance')
+        if wp not in wps:
+                wps.append(wp)
+    print(wps)
