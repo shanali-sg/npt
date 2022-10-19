@@ -1,16 +1,24 @@
 import networkx as nx
+import sys
+
+try: 
+    arg = sys.argv[1] 
+except IndexError: 
+    raise SystemExit(f"\nUsage: {sys.argv[0]} source_node target_node\n\ne.g.: python3 npt.py 1 5\n") 
+    print(arg[::-1]) 
+
+u = int(sys.argv[1])
+v = int(sys.argv[2])
+
 G = nx.Graph()
-G = nx.read_edgelist("npt1.edgelist", nodetype=int)
+G = nx.read_edgelist("npt.edgelist", nodetype=int)
+
 def capacity(path):
     return [(G[u][v]['capacity']) for (u,v)in zip(path[0:],path[1:])]
 def spof(path):
     return [(G[u][v]['spof']) for (u,v)in zip(path[0:],path[1:])]
 def ref(path):
     return [(G[u][v]['ref']) for (u,v)in zip(path[0:],path[1:])]
-
-# requested nodes
-u = 1
-v = 5
 
 candidate_path = []
 diverse_path = []
