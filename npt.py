@@ -13,12 +13,8 @@ v = int(sys.argv[2])
 G = nx.Graph()
 G = nx.read_edgelist("npt.edgelist", nodetype=int)
 
-def capacity(path):
-    return [(G[u][v]['capacity']) for (u,v)in zip(path[0:],path[1:])]
-def spof(path):
-    return [(G[u][v]['spof']) for (u,v)in zip(path[0:],path[1:])]
-def ref(path):
-    return [(G[u][v]['ref']) for (u,v)in zip(path[0:],path[1:])]
+def edge_attr(path, edge_attr):
+    return [(G[u][v][edge_attr]) for (u,v)in zip(path[0:],path[1:])]
 
 candidate_path = []
 diverse_path = []
@@ -27,14 +23,14 @@ diverse_path = []
 paths = nx.all_simple_paths(G, u, v)
 
 for p in paths:
-    if not 0 in capacity(p):
+    if not 0 in edge_attr(p, 'capacity'):
         if candidate_path == []:
             candidate_path = p
             candidate_path_distance = nx.path_weight(G, p, weight='distance')
         else:
             diverse_path = p
             diverse_path_distance = nx.path_weight(G, p, weight='distance')
-            if not any(item in ref(candidate_path) for item in spof(diverse_path)):
+            if not any(item in edge_attr(candidate_path, 'ref') for item in edge_attr(diverse_path, 'spof')):
                 print(candidate_path, candidate_path_distance)
                 print(diverse_path, diverse_path_distance)
                 candidate_path = []
